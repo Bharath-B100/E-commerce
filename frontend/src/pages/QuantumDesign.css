@@ -1,0 +1,1338 @@
+/* QuantumDesign.css - Unified Premium Design System */
+
+:root {
+  /* Quantum Color Palette */
+  --quantum-primary: #00f0ff;
+  --quantum-secondary: #ff00ff;
+  --quantum-accent: #00ff88;
+  --quantum-dark: #0a0a1f;
+  --quantum-darker: #050510;
+  --quantum-light: #a0f0ff;
+  --quantum-glow: rgba(0, 240, 255, 0.5);
+  --quantum-matrix: #00ff41;
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0ff;
+  --text-tertiary: #8080cc;
+  
+  /* Background Colors */
+  --bg-primary: var(--quantum-darker);
+  --bg-secondary: rgba(255, 255, 255, 0.05);
+  --bg-tertiary: rgba(255, 255, 255, 0.1);
+  
+  /* Border Colors */
+  --border-primary: rgba(0, 240, 255, 0.3);
+  --border-secondary: rgba(255, 255, 255, 0.2);
+  
+  /* Shadows */
+  --shadow-glow: 0 0 50px var(--quantum-glow);
+  --shadow-card: 0 20px 40px rgba(0, 240, 255, 0.2);
+  
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 3rem;
+  --space-xl: 4rem;
+  
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.quantum-page {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.6;
+}
+
+/* Quantum Container */
+.quantum-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  position: relative;
+  z-index: 2;
+}
+
+/* Quantum Background Elements */
+.quantum-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.1;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: var(--quantum-primary);
+  top: -300px;
+  right: -200px;
+}
+
+.orb-2 {
+  width: 400px;
+  height: 400px;
+  background: var(--quantum-secondary);
+  bottom: -200px;
+  left: -100px;
+}
+
+/* Matrix Background */
+.hero-matrix,
+.newsletter-matrix {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(90deg, transparent 79px, rgba(0, 255, 65, 0.03) 81px, rgba(0, 255, 65, 0.03) 239px, transparent 241px),
+    linear-gradient(rgba(0, 255, 65, 0.03) 79px, transparent 81px, transparent 239px, rgba(0, 255, 65, 0.03) 241px);
+  background-size: 240px 240px;
+  animation: matrixMove 20s linear infinite;
+}
+
+@keyframes matrixMove {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(240px); }
+}
+
+/* Quantum Sections */
+.quantum-section {
+  padding: var(--space-xl) 0;
+  position: relative;
+}
+
+.quantum-section.dark {
+  background: var(--quantum-dark);
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.section-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  background: linear-gradient(135deg, var(--quantum-primary), var(--quantum-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Quantum Hero */
+.quantum-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.quantum-badge {
+  background: linear-gradient(45deg, var(--quantum-primary), var(--quantum-secondary));
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: var(--space-md);
+  animation: pulse 2s infinite;
+}
+
+.quantum-badge.product {
+  background: linear-gradient(45deg, var(--quantum-accent), var(--quantum-primary));
+  color: var(--quantum-darker);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.hero-title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: var(--space-md);
+}
+
+.title-line {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.quantum-gradient {
+  background: linear-gradient(135deg, var(--quantum-primary), var(--quantum-accent), var(--quantum-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+/* Quantum Stats */
+.quantum-stats {
+  display: flex;
+  gap: var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--quantum-primary), var(--quantum-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: var(--space-xs);
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Hero Visual */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantum-product-preview {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--quantum-primary);
+  box-shadow: var(--shadow-glow);
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.quantum-product-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-aura {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--quantum-primary), var(--quantum-secondary), var(--quantum-accent), var(--quantum-primary));
+  opacity: 0.3;
+  filter: blur(20px);
+  z-index: -1;
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Quantum Buttons */
+.quantum-btn {
+  position: relative;
+  padding: var(--space-sm) var(--space-md);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.quantum-btn.primary {
+  background: linear-gradient(135deg, var(--quantum-primary), var(--quantum-accent));
+  color: var(--quantum-darker);
+  box-shadow: 0 0 20px var(--quantum-glow);
+}
+
+.quantum-btn.secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--quantum-primary);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+}
+
+.quantum-btn.outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--text-tertiary);
+}
+
+.quantum-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px var(--quantum-glow);
+}
+
+.btn-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.quantum-btn:hover .btn-glow {
+  left: 100%;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+}
+
+/* Quantum Grid System */
+.quantum-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-md);
+}
+
+/* Quantum Cards */
+.quantum-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.quantum-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-card);
+  border-color: var(--quantum-primary);
+}
+
+/* Hologram Effect */
+.card-hologram {
+  position: relative;
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.hologram-shine {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* Category Cards */
+.category-card {
+  text-align: center;
+  cursor: pointer;
+}
+
+.category-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-sm);
+}
+
+.category-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: var(--space-xs);
+}
+
+.category-description {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-sm);
+  line-height: 1.5;
+}
+
+.category-count {
+  font-size: 0.875rem;
+  color: var(--quantum-accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Quantum Showcase */
+.quantum-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.quantum-product-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.product-hologram {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+.hologram-base {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(45deg, var(--quantum-primary), var(--quantum-secondary));
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.3;
+}
+
+.product-image {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.product-energy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: conic-gradient(from 0deg, var(--quantum-primary), var(--quantum-secondary), var(--quantum-accent), var(--quantum-primary));
+  border-radius: var(--radius-lg);
+  opacity: 0.1;
+  filter: blur(20px);
+  animation: rotate 10s linear infinite;
+}
+
+.product-info {
+  padding: var(--space-lg) 0;
+}
+
+.product-name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  line-height: 1.2;
+}
+
+.product-description {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+.product-features {
+  display: flex;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.quantum-tag {
+  background: rgba(255,255,255,0.1);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+}
+
+.quantum-tag:hover {
+  background: var(--quantum-primary);
+  color: var(--quantum-darker);
+  transform: translateY(-1px);
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.quantum-stars {
+  color: var(--quantum-accent);
+  font-size: 1.125rem;
+}
+
+.rating-value {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.product-price {
+  text-align: right;
+}
+
+.current-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--quantum-primary);
+}
+
+.original-price {
+  font-size: 1.25rem;
+  color: var(--text-tertiary);
+  text-decoration: line-through;
+  margin-left: var(--space-xs);
+}
+
+.product-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+/* Quantum Features */
+.quantum-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-md);
+}
+
+.feature-card {
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-md);
+}
+
+.feature-title {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-sm);
+  color: var(--quantum-primary);
+}
+
+.feature-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Quantum Newsletter */
+.quantum-newsletter {
+  padding: var(--space-xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.newsletter-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-sm);
+  background: linear-gradient(135deg, var(--quantum-primary), var(--quantum-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.newsletter-content p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+}
+
+.newsletter-form {
+  display: flex;
+  gap: var(--space-sm);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.quantum-input {
+  flex: 1;
+  padding: var(--space-sm);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.quantum-input:focus {
+  outline: none;
+  border-color: var(--quantum-primary);
+  box-shadow: 0 0 20px var(--quantum-glow);
+}
+
+.quantum-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* Quantum Scroll Indicator */
+.quantum-scroll-indicator {
+  position: absolute;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.scroll-line {
+  width: 2px;
+  height: 50px;
+  background: linear-gradient(to top, var(--quantum-primary), transparent);
+  margin: 0 auto var(--space-xs);
+  animation: scrollLine 2s infinite;
+}
+
+@keyframes scrollLine {
+  0% { transform: scaleY(0); opacity: 0; }
+  50% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(0); opacity: 0; }
+}
+/* Quantum Notification Alert */
+.quantum-notification {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: rgba(10, 10, 20, 0.9);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease-in-out;
+  z-index: 9999;
+}
+
+/* when visible */
+.quantum-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* small image or icon */
+.quantum-notification img {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+}
+
+/* glowing animation */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+  }
+}
+
+.quantum-notification.show {
+  animation: glowPulse 2s infinite ease-in-out;
+}
+
+
+.notification-product {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.notification-product img {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.notification-title {
+  font-weight: 600;
+  color: var(--quantum-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.notification-name {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--space-md);
+  }
+
+  .hero-title {
+    font-size: 3rem;
+  }
+
+  .quantum-stats {
+    justify-content: center;
+  }
+
+  .quantum-product-preview {
+    width: 300px;
+    height: 300px;
+  }
+
+  .quantum-product-card {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .quantum-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .product-actions {
+    flex-direction: column;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quantum-container {
+    padding: 0 var(--space-sm);
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .quantum-stats {
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .stat-value {
+    font-size: 2rem;
+  }
+}
+/* Enhanced Products Page Styles */
+.filters-container {
+  margin-bottom: var(--space-xl);
+}
+
+.filters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.filters-header h3 {
+  color: var(--quantum-primary);
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.filters-grid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-bottom: var(--space-md);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quick-categories {
+  margin-top: var(--space-md);
+}
+
+.categories-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+.quantum-chip {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-secondary);
+  color: var(--text-secondary);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-lg);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.quantum-chip:hover {
+  border-color: var(--quantum-primary);
+  transform: translateY(-2px);
+}
+
+.quantum-chip.active {
+  background: var(--quantum-primary);
+  color: var(--quantum-darker);
+  border-color: var(--quantum-primary);
+}
+
+.chip-count {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+  padding: var(--space-md);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-secondary);
+}
+
+.results-count {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.products-grid {
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--space-lg);
+}
+
+.product-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-hologram {
+  position: relative;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+.discount-badge {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  background: var(--quantum-secondary);
+  color: white;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  z-index: 3;
+}
+
+.product-info {
+  padding: var(--space-lg);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-meta-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.product-category {
+  background: var(--bg-tertiary);
+  color: var(--quantum-accent);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.product-brand {
+  color: var(--text-tertiary);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.product-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+.product-description {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: var(--space-md);
+  flex: 1;
+}
+
+.product-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-lg);
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.rating-value {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.product-price {
+  text-align: right;
+}
+
+.current-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--quantum-primary);
+}
+
+.original-price {
+  font-size: 1rem;
+  color: var(--text-tertiary);
+  text-decoration: line-through;
+  margin-left: var(--space-xs);
+}
+
+.product-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: auto;
+}
+
+.product-actions .quantum-btn {
+  flex: 1;
+}
+
+.no-products {
+  text-align: center;
+  padding: var(--space-xl);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-xl);
+  border: 2px dashed var(--border-secondary);
+}
+
+.no-products-icon {
+  font-size: 4rem;
+  margin-bottom: var(--space-md);
+  opacity: 0.5;
+}
+
+.no-products h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  font-size: 1.5rem;
+}
+
+.no-products p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.quantum-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+}
+
+.quantum-loader {
+  font-size: 4rem;
+  margin-bottom: var(--space-md);
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.quantum-btn.small {
+  padding: var(--space-xs) var(--space-sm);
+  font-size: 0.75rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .filters-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .categories-grid {
+    justify-content: center;
+  }
+  
+  .filters-header {
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: stretch;
+  }
+  
+  .results-header {
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-actions {
+    flex-direction: column;
+  }
+  
+  .product-meta {
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: flex-start;
+  }
+  
+  .product-price {
+    text-align: left;
+  }
+}
+/* Search Results Specific Styles */
+.search-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  padding: var(--space-lg);
+}
+
+.search-results-count {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  margin-bottom: var(--space-lg);
+}
+
+.search-box {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--space-lg);
+}
+
+.search-input-container {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.quantum-input.large {
+  flex: 1;
+  padding: var(--space-md);
+  font-size: 1.125rem;
+}
+
+.search-content {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.quantum-filters-sidebar {
+  position: sticky;
+  top: var(--space-lg);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  backdrop-filter: blur(10px);
+}
+
+.filters-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.filters-header h3 {
+  color: var(--quantum-primary);
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.filter-group {
+  margin-bottom: var(--space-md);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.checkbox-label input[type="checkbox"] {
+  display: none;
+}
+
+.checkmark {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkmark {
+  background: var(--quantum-primary);
+  border-color: var(--quantum-primary);
+}
+
+.checkbox-label input[type="checkbox"]:checked + .checkmark::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--quantum-darker);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.no-results {
+  text-align: center;
+  padding: var(--space-xl);
+  background: var(--bg-secondary);
+  border: 2px dashed var(--border-secondary);
+}
+
+.no-results-icon {
+  font-size: 4rem;
+  margin-bottom: var(--space-md);
+  opacity: 0.5;
+}
+
+.no-results h3 {
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  font-size: 1.5rem;
+}
+
+.no-results p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+  line-height: 1.6;
+}
+
+.no-results-actions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.results-summary {
+  text-align: center;
+  margin-top: var(--space-lg);
+  padding: var(--space-md);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+}
+
+/* Responsive Design for Search */
+@media (max-width: 768px) {
+  .search-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .quantum-filters-sidebar {
+    position: static;
+    margin-bottom: var(--space-lg);
+  }
+  
+  .search-input-container {
+    flex-direction: column;
+  }
+  
+  .no-results-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .no-results-actions .quantum-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-header {
+    padding: var(--space-md);
+  }
+  
+  .search-box {
+    padding: var(--space-md);
+  }
+}
